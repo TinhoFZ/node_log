@@ -1,0 +1,8 @@
+<h1>Editing</h1>
+<form action="/users/{{user.id_user}}?_method=PUT" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+
+    <input name="email" type="email" value="{{user.email}}">
+    <input name="password" value="{{user.password}}">
+    <button type="submit">Save</button>
+</form>
