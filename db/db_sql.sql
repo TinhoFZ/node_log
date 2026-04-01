@@ -15,23 +15,20 @@ description VARCHAR(500),
 price DECIMAL(5, 2)
 );
 
-CREATE TABLE actions_log (
-id_log BIGINT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE action_logs (
+id_action INT PRIMARY KEY AUTO_INCREMENT,
 id_user INT NOT NULL,
 id_game INT,
-date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-action_type VARCHAR(255),
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+action VARCHAR(255),
 FOREIGN KEY (id_user) REFERENCES users(id_user),
 FOREIGN KEY (id_game) REFERENCES games(id_game)
 );
 
-INSERT INTO users (email, password)
-VALUES ('emailBom@yahoo.com', '123');
-
-INSERT INTO games (name)
-VALUES ('Dota 2');
-
-INSERT INTO actions_log (id_user, action_type)
-VALUES (1, 'LOGIN');
-
-SELECT * FROM users;
+CREATE TABLE request_logs (
+id_request INT PRIMARY KEY AUTO_INCREMENT,
+method VARCHAR(10) NOT NULL,
+route VARCHAR(255) NOT NULL,
+status_code INT,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
