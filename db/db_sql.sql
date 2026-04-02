@@ -10,9 +10,11 @@ password VARCHAR(255) NOT NULL
 
 CREATE TABLE games (
 id_game INT PRIMARY KEY AUTO_INCREMENT,
+id_user INT,
 name VARCHAR(255) NOT NULL UNIQUE,
 description VARCHAR(500),
-price DECIMAL(5, 2)
+price DECIMAL(5, 2),
+FOREIGN KEY (id_user) REFERENCES users(id_user)
 );
 
 CREATE TABLE action_logs (
@@ -32,3 +34,8 @@ route VARCHAR(255) NOT NULL,
 status_code INT,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+SELECT * FROM users;
+SELECT * FROM games;
+SELECT * FROM action_logs;
+SELECT * FROM request_logs;

@@ -1,0 +1,52 @@
+<h1>Games</h1>
+
+<h2>Add new game</h2>
+<form  method="POST">
+    <label for="name">
+        Input name:<span style="color: red;">*</span>
+    </label>
+    <input name="name" placeholder="Rainbow Six Siege" type="text">
+        
+        <br>
+
+    <label for="description">
+        Input description:
+    </label>
+    <input name="description" placeholder="An FPS game" type="text">
+        
+        <br>
+
+    <label for="price">
+        Input price (R$):<span style="color: red;">*</span>
+    </label>
+    <input name="price" placeholder="49.99" type="text">
+        
+        <br>
+
+    <button type="submit">Add</button>
+</form>
+
+<h2>All games</h2>
+<div>
+    <ul type="1">
+        {{#each gameList}}
+            <br>
+            <div style="height: 1px; width: 40%; background-color: black;"></div>
+            
+            <li>
+                <span style="font-weight: bold;">{{this.name}}</span>
+                    <ul>
+                        <p>R${{this.price}}</p>
+                        <p>{{this.description}}</p>
+                    </ul>
+                <button>Edit</button>
+            </li>
+            
+
+            {{else}}
+                <p>No game yet</p>
+        {{/each}}
+    </ul>
+</div>
+
+<a href="choice"><button>Return</button></a>
